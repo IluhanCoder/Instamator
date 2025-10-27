@@ -6,7 +6,8 @@ const baseURL = (import.meta as any).env?.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL,
-  withCredentials: true,
+  // Remove withCredentials since we're using JWT tokens in headers, not cookies
+  // withCredentials: true,
 });
 
 console.log('API base URL:', baseURL);

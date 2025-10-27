@@ -1,0 +1,29 @@
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.css
+  Content-Type: text/css
+
+/*.js
+  Content-Type: application/javascript
+
+/*.json
+  Content-Type: application/json
+
+/*.png
+  Content-Type: image/png
+
+/*.jpg
+  Content-Type: image/jpeg
+
+/*.jpeg
+  Content-Type: image/jpeg
+
+/*.gif
+  Content-Type: image/gif
+
+/*.svg
+  Content-Type: image/svg+xml

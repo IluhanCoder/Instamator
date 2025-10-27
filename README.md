@@ -7,7 +7,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)](https://www.mongodb.com/)
 
-[GitHub](https://github.com/IluhanCoder/Instamator) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Setup](#-quick-start)
+[Live Demo](#) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Setup](#-quick-start)
 
 ---
 
@@ -88,7 +88,7 @@
 
 ```bash
 git clone https://github.com/IluhanCoder/Instamator.git
-cd Instamator
+cd instamator
 
 # Install server dependencies
 cd server

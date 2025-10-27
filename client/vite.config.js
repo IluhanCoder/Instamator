@@ -7,5 +7,18 @@ export default defineConfig({
     proxy: {
       '/api': 'http://localhost:5001'
     }
-  }
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    minify: 'esbuild', // Використовуємо esbuild замість terser
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  },
+  base: './',
+  publicDir: 'public'
 })

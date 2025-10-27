@@ -124,7 +124,9 @@ router.post('/save', auth, async (req, res) => {
 
 router.get('/history', auth, async (req, res) => {
   try {
+    console.log('History request from user:', req.user.id);
     const items = await History.find({ userId: req.user.id }).sort({ createdAt: -1 }).limit(200);
+    console.log(`Found ${items.length} history items for user ${req.user.id}`);
     res.json(items);
   } catch (err) {
     console.error('history error', err);

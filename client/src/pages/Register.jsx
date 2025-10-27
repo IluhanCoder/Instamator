@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import toast from 'react-hot-toast'
-import api from '../lib/api'
+import api from '../services/api'
 
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').optional().or(z.literal('')),

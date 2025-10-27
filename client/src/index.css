@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* You should NOT import the 'tailwindcss' package directly with @import.
+	Use the Tailwind directives above and ensure PostCSS is configured
+	(postcss.config.js) to load tailwindcss as a plugin. */

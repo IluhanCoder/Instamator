@@ -23,6 +23,6 @@ export default defineConfig({
       }
     }
   },
-  base: './',
+  base: '/', // Use absolute paths for SPA routing
   publicDir: 'public'
 })

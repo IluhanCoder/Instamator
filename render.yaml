@@ -1,12 +1,25 @@
 services:
+  # Backend API
   - type: web
-    name: instamator-server
+    name: instamator-backend
     env: node
     plan: free
+    region: oregon
     buildCommand: cd server && npm install
     startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
+
+  # Frontend Static Site  
+  - type: web
+    name: instamator-frontend
+    env: static
+    plan: free
+    region: oregon
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

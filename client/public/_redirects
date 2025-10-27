@@ -1,1 +1,6 @@
+# Static assets should be served as-is
+/assets/*  /assets/:splat  200
+/favicon.ico  /favicon.ico  200
+
+# SPA fallback - all other routes should go to index.html
 /*    /index.html   200

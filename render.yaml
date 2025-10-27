@@ -1,9 +1,10 @@
 services:
   # Backend API
   - type: web
-    name: instamator-server
+    name: instamator-backend
     env: node
     plan: free
+    region: oregon
     buildCommand: cd server && npm install
     startCommand: cd server && npm start
     envVars:
@@ -12,11 +13,15 @@ services:
 
   # Frontend (static site)
   - type: web
-    name: instamator-client
+    name: instamator-frontend
     env: static
     plan: free
+    region: oregon
     buildCommand: cd client && npm install && npm run build
     staticPublishPath: client/dist
+    envVars:
+      - key: VITE_API_URL
+        generateValue: false
     routes:
       - type: rewrite
         source: /*

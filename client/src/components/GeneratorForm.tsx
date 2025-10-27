@@ -25,12 +25,14 @@ export default function GeneratorForm() {
     setHighlights([]);
     try {
       const data = await generate({ prompt, style });
-      if (data.posts && Array.isArray(data.posts) && data.profile) {
+      console.log('API response:', data); // Debug log
+      if (data && data.profile && data.posts && Array.isArray(data.posts)) {
         setPosts(data.posts);
         setProfile(data.profile);
-        setHighlights(data.highlights || []);
+        setHighlights(Array.isArray(data.highlights) ? data.highlights : []);
         toast.success('Content plan generated!');
       } else {
+        console.error('Invalid response structure:', data);
         toast.error('Unexpected response from server');
       }
     } catch (err: any) {

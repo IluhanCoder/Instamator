@@ -101,15 +101,17 @@ export default function InstagramMock({ profile, highlights, posts, onSave, isAu
             ))}
           </div>
         ) : (
-          highlights.length > 0 && (
+          highlights && highlights.length > 0 && Array.isArray(highlights) && (
             <div className="flex gap-3 overflow-x-auto pb-2">
               {highlights.map((highlight, idx) => (
                 <div
                   key={idx}
                   className="flex flex-col items-center cursor-pointer flex-shrink-0"
                   onClick={() => {
-                    setViewingStories(highlight.stories);
-                    setCurrentStoryIndex(0);
+                    if (highlight.stories && Array.isArray(highlight.stories)) {
+                      setViewingStories(highlight.stories);
+                      setCurrentStoryIndex(0);
+                    }
                   }}
                 >
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-400 to-pink-500 flex items-center justify-center text-white text-base font-bold mb-1 border-2 border-white shadow">
@@ -129,7 +131,8 @@ export default function InstagramMock({ profile, highlights, posts, onSave, isAu
           ? Array.from({ length: 9 }).map((_, i) => (
               <div key={i} className="aspect-[4/5] bg-slate-200 animate-pulse rounded" />
             ))
-          : posts.map((post) => (
+          : Array.isArray(posts) && posts.length > 0 
+          ? posts.map((post) => (
               <div
                 key={post.index}
                 className="aspect-[4/5] bg-slate-100 flex flex-col items-center justify-center cursor-pointer hover:bg-slate-200 transition text-xs p-1"
@@ -138,7 +141,10 @@ export default function InstagramMock({ profile, highlights, posts, onSave, isAu
                 <div className="font-bold text-sm mb-1">{post.index}</div>
                 <div className="text-center text-slate-700 line-clamp-4">{post.img}</div>
               </div>
-            ))}
+            ))
+          : (
+              <div className="col-span-3 text-center text-slate-500 p-4">No posts available</div>
+            )}
       </div>
 
       {onSave && (
@@ -227,7 +233,7 @@ export default function InstagramMock({ profile, highlights, posts, onSave, isAu
           <div className="w-full max-w-md h-full relative flex flex-col" onClick={(e) => e.stopPropagation()}>
             {/* Progress bars */}
             <div className="absolute top-4 left-4 right-4 flex gap-1 z-10">
-              {viewingStories.map((_, idx) => (
+              {Array.isArray(viewingStories) && viewingStories.map((_, idx) => (
                 <div key={idx} className="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
                   {(idx === currentStoryIndex || idx < currentStoryIndex) && (
                     <div className="h-full bg-white w-full"></div>

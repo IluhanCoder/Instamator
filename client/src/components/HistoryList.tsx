@@ -21,9 +21,11 @@ export default function HistoryList() {
     async function load() {
       try {
         const data = await getHistory()
-        setItems(data)
+        console.log('History data:', data); // Debug log
+        setItems(Array.isArray(data) ? data : [])
       } catch (err) {
         console.error(err)
+        setItems([])
       }
     }
     load()
@@ -33,7 +35,7 @@ export default function HistoryList() {
 
   return (
     <div className="space-y-3">
-      {items.map((it) => (
+      {Array.isArray(items) && items.map((it) => (
         <button
           key={it._id}
           className="bg-white p-4 rounded shadow text-left w-full hover:bg-slate-50"

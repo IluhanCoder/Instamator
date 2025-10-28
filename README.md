@@ -7,7 +7,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=node.js)](https://nodejs.org/)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?logo=mongodb)](https://www.mongodb.com/)
 
-[Live Demo](#) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Setup](#-quick-start)
+[Live Demo](https://instamator-frontend.onrender.com) • [Features](#-features) • [Tech Stack](#-tech-stack) • [Setup](#-quick-start)
 
 ---
 
@@ -67,6 +67,15 @@
 - **Optimistic updates** — Skeleton UIs and loading states for perceived performance
 
 ---
+
+## 🎬 Demo
+
+![INSTAmator Demo](docs/images/demo.gif)
+
+*Generating Instagram content plan with AI*
+
+---
+
 
 ## 📸 Screenshots
 
